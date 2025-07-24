@@ -15,7 +15,7 @@ A Java-based console application for managing patients, doctors, and appointment
 ## Technologies
 
 - Java (JDK 8+)
-- Java Collections (ArrayList, List)
+- Java Collections (ArrayList, Arrays)
 - Scanner for console input
 - OOP
 
