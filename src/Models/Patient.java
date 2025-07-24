@@ -2,25 +2,28 @@ package Models;
 
 import java.util.ArrayList;
 
-public class Patient extends Person implements IPerson<Patient>
+public class Patient extends Person
 {
+    public ArrayList<Appointment> appointments = new ArrayList();
 
-    public ArrayList<Appointment> getAppointments() {
-        return appointments;
+    public Patient( int age, String gender, String firstName, String lastNAme) {
+        super(age, gender, firstName, lastNAme);
     }
-
-    public void setAppointments(ArrayList<Appointment> appointments) {
-        this.appointments = appointments;
-    }
-
-    private ArrayList<Appointment> appointments = new ArrayList();
-    @Override
-    public void add(Patient patient) {
+    public Patient(){
 
     }
-
-    @Override
-    public void remove(Patient patient) {
-
+    public void displayData(){
+        System.out.println("Name: "+ this.getFirstName()+ " "+ this.getLastNAme());
+        System.out.println("Gender: "+this.getGender());
+        System.out.println("Age: "+ this.getAge());
+        if(appointments.toArray().length!=0){
+            System.out.println("Appointments: ");
+            for (var item : appointments){
+                item.displayAppiontmentDataForSpecificPatient();
+            }
+        }
     }
+
+
+
 }

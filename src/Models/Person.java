@@ -1,18 +1,31 @@
 package Models;
 import java.util.regex.*;
-abstract public class Person {
+ public class Person {
 
-    private int nationalId;
-    private int age;
+
+    private  int age;
     private String gender;
     private String firstName;
     private String lastNAme;
     String pattern ="^[a-zA-z]";
-    public String getLastNAme() {
-        return lastNAme;
-    }
 
-    public void setLastNAme(String lastNAme) {
+
+     public Person(int age, String gender, String firstName, String lastNAme) {
+
+         this.age = age;
+         this.gender = gender;
+         this.firstName = firstName;
+         this.lastNAme = lastNAme;
+
+     }
+
+     public Person() {
+     }
+
+     public String getLastNAme() {
+         return lastNAme;
+     }
+     public void setLastNAme(String lastNAme) {
         if(lastNAme.matches(pattern)) {
             this.lastNAme = lastNAme;
         }
@@ -48,16 +61,8 @@ abstract public class Person {
         }
     }
 
-    public int getNationalId() {
-        return nationalId;
-    }
 
-    public void setNationalId(int nationalId) {
-        if(String.valueOf(nationalId).length() == 14) {
-            this.nationalId = nationalId;
-        }
-    }
-
-
-
-}
+     public String getFullName() {
+         return this.firstName.concat(" "+ this.lastNAme);
+     }
+ }
